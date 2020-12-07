@@ -5,8 +5,7 @@ const rfs = require('rotating-file-stream')
 const path = require('path')
 const os = require('os')
 const Logger = require("./../config/logger")
-const config = require("./../config/index")
-// require('dotenv').config()
+require('dotenv').config()
 module.exports = {
     loader: async function(app) {
         /*
@@ -16,7 +15,7 @@ module.exports = {
         return new Promise(function(resolve, reject) {
 
             // start the server
-            app.listen(config.PORT, config.IP, (req, res) => {
+            app.listen(process.env.PORT, process.env.IP, (req, res) => {
                 Logger.info("Server Started")
             })
 
